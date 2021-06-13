@@ -1,0 +1,73 @@
+<html>
+    <head>
+        <!-- Required meta tags -->
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Bootstrap CSS -->
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+        <!-- Animation CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+        <title>
+            LIBRARY
+        </title>
+
+    </head>
+    <body class='text-white' style="background-color: rgb(7, 15, 23); overflow: hidden;">
+        <div class='h-100 row justify-content-center align-items-center fixed-top'>
+            <div>
+                <h1 class='text-center animate__animated animate__fadeInUp animate__delay-1s animate__slow	1s' style=" font-family: Neuemontreal, sans-serif; font-size: 14px; font-weight: 400; line-height: 20px;" id="start_welcome_h1">
+                    WELCOME TO THE LIBRARY
+                </h1>
+                <div class="py-2 animate__animated animate__fadeIn animate__delay-2s animate__slow 1s"  id='start_welcome_button_div'>
+                    <p class='text-center'>
+                        <button type="button" class="btn btn-outline-light" onclick = "removeAndAddClass()">Enter</button>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class='d-none h-100 row justify-content-center align-items-center fixed-top' id='header_div'>
+            <div>
+            <a class='text-center' href='/home' style=" font-family: Neuemontreal, sans-serif; font-size: 14px; font-weight: 400; line-height: 20px;">
+                <p class='text-center'>
+                    <button type="button" class="d-none animate__animated btn btn-outline-light" id="header_name_image">LIBRARIAN</button>
+                </p>
+            </a>
+            <a class="py-2" href='/guest'>
+                <p class='text-center'>
+                    <button type="button" class="d-none animate__animated btn btn-outline-light" id='header_contact'>GUEST</button>
+                </p>
+            </a>
+            </div>
+        </div>
+
+
+        <script>
+            function removeAndAddClass() {
+            var start_welcome_h1 = document.getElementById("start_welcome_h1");
+            start_welcome_h1.classList.remove("animate__fadeInUp", "animate__delay-1s", "animate__slow", "500ms");
+            start_welcome_h1.classList.add("animate__fadeOutUp", "animate__slow", "1s");
+
+            var start_welcome_button = document.getElementById("start_welcome_button_div");
+            start_welcome_button.classList.remove("animate__fadeIn", "animate__delay-2s", "animate__slow", "500ms");
+            start_welcome_button.classList.add("animate__fadeOut", "animate__slow", "1s");
+
+            var header_div = document.getElementById("header_div")
+            header_div.classList.remove("d-none")
+
+            var header_name_image = document.getElementById("header_name_image");
+            header_name_image.classList.remove("d-none");
+            header_name_image.classList.add("animate__fadeInRight", "animate__delay-2s");
+
+            var header_contact = document.getElementById("header_contact");
+            header_contact.classList.remove("d-none");
+            header_contact.classList.add("animate__fadeInRight", "animate__delay-3s");
+            }
+        </script>
+        <!-- Option 1: Bootstrap Bundle with Popper -->
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+    </body>
+</html>

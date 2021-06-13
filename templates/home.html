@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% block stylesheet %}
+<style>
+    .b-example-divider {
+  height: 3rem;
+  background-color: rgba(255, 255, 255, .1);
+  border: solid rgba(255, 255, 255, .15);
+  border-width: 1px 0;
+  box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+}
+</style>
+{% endblock stylesheet %}
+{% block title %}
+Home
+{% endblock title %}
+{% block content %}
+    <h2 class="pb-2 border-bottom">Books</h2>
+    <div class="px-4 py-5 my-5 text-center">
+        <div class="content-section d-block mx-auto mb-4">
+            <div class="col-lg-6 mx-auto">
+                <form method="POST", action="">
+                    {{ form.hidden_tag() }}
+                    <fieldset class="form-group">
+                        <legend class='border-bottom mb-4'>
+                            Add books
+                        </legend>
+                        {% with messages = get_flashed_messages(with_categories=true) %}
+                            {% if messages %}
+                                {% for category, message in messages %}
+                                    <div class='alert alert-{{ category }} alert-dismissible' role="alert">
+                                        {{ message }}
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                        {% endwith %}
+                        <div class="form-group animate__animated animate__fadeInLeft">
+                            {{ form.load_books.label(class="form-control-label") }}
+                            {{ form.load_books(class="form-control form-control-lg text-center") }}
+                        </div>
+                        <div class="form-group animate__animated animate__fadeInLeft">
+                            {{ form.submit(class="form-control form-control-lg my-2") }}
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="b-example-divider"></div>
+    <div class="px-4 py-5 my-5 text-center">
+        <div class="content-section d-block mx-auto mb-4">
+            <div class="col-lg-6 mx-auto">
+                <form method="POST", action="">
+                    {{ form2.hidden_tag() }}
+                    <fieldset class="form-group">
+                        <legend class='border-bottom mb-4'>
+                            Remove a book
+                        </legend>
+                        <div class="form-group animate__animated animate__fadeInRight">
+                            {{ form2.remove_book.label(class="form-control-label") }}
+                            {{ form2.remove_book(class="form-control form-control-lg text-center") }}
+                        </div>
+                        <div class="form-group animate__animated animate__fadeInRight">
+                            {{ form.submit(class="form-control form-control-lg my-2") }}
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="b-example-divider"></div>
+    <h2 class="pb-2 border-bottom">Members</h2>
+    <div class="px-4 py-5 my-5 text-center">
+        <div class="content-section d-block mx-auto mb-4">
+            <div class="col-lg-6 mx-auto">
+                <form method="POST", action="">
+                    {{ form3.hidden_tag() }}
+                    <fieldset class="form-group">
+                        <legend class='border-bottom mb-4'>
+                            Add a member
+                        </legend>
+                        <div class="form-group animate__animated animate__fadeInLeft">
+                            {{ form3.member_name.label(class="form-control-label") }}
+                            {{ form3.member_name(class="form-control form-control-lg text-center") }}
+                        </div>
+                        <div class="form-group animate__animated animate__fadeInLeft">
+                            {{ form3.member_email.label(class="form-control-label") }}
+                            {{ form3.member_email(class="form-control form-control-lg text-center") }}
+                        </div>
+                        <div class="form-group animate__animated animate__fadeInLeft">
+                            {{ form3.submit(class="form-control form-control-lg my-2") }}
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="b-example-divider"></div>
+    <div class="px-4 py-5 my-5 text-center">
+        <div class="content-section d-block mx-auto mb-4">
+            <div class="col-lg-6 mx-auto">
+                <form method="POST", action="">
+                    {{ form4.hidden_tag() }}
+                    <fieldset class="form-group">
+                        <legend class='border-bottom mb-4'>
+                            Remove a member
+                        </legend>
+                        <div class="form-group animate__animated animate__fadeInRight">
+                            {{ form4.member_email_remove.label(class="form-control-label") }}
+                            {{ form4.member_email_remove(class="form-control form-control-lg text-center") }}
+                        </div>
+                        <div class="form-group animate__animated animate__fadeInRight">
+                            {{ form4.submit(class="form-control form-control-lg my-2") }}
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

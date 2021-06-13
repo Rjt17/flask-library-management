@@ -1,0 +1,5 @@
+Flask
+MySQLdb
+WTForms
+requests
+email-validator

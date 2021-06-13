@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %}
+Report
+{% endblock title %}
+{% block content %}
+<div id="container" style="width: 100%;">
+        <canvas id="mychart" height="100"></canvas>
+        </div>
+        <script>
+            var config = {
+                type: 'line',
+                data: {
+                    labels: {{members|safe}},
+                    datasets: [{
+                        label: 'HIGHEST PAYING CUSTOMERS',
+                        lineTension: 0,
+                        fill: false, 
+                        data: {{amount|safe}},
+                        borderColor: [
+                            'rgb(75, 192, 192)',
+                        ],
+                        borderWidth: 3
+                    }]
+                },
+                options: {
+                responsive: true,
+                bezierCurve: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                title: {
+                    display: true,
+                    text: 'Chart.js Line Chart'
+                        }
+                    }
+                }
+            };
+            window.onload = function() {
+                var ctx = document.getElementById('mychart').getContext('2d');
+            window.myBar = new Chart(ctx, config);
+            };
+        </script>
+{% endblock content %}
